@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算天数</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #day{
+            color: red;
+            font-size: 60px;
+            padding: 0 5px;
+        }
+        html, body, .wrap{
+            width: 100%;
+            height: 100%;
+        }
+        .wrap{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url(zz.jpeg) no-repeat center center;
+            background-size: cover;
+        }
+        .txt{
+            width: 100%;
+            color: #fff;
+            padding-left: 50%;
+        }
+        @media(max-width: 756px) {
+          .txt{
+            padding-left: 0;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="txt">
+            <p>我们在 2019/08/04 14:48 正式确认关系</p>
+            <h1>今天是爱上战战的第<span id="day"></span>天！</h1>
+        </div>
+    </div>
+    <script>
+        function DateMinus(date1,date2){//date1:小日期   date2:大日期
+            var sdate = new Date(date1); 
+            var now = new Date(date2); 
+            var days = now.getTime() - sdate.getTime(); 
+            var day = parseInt(days / (1000 * 60 * 60 * 24)); 
+            return day; 
+        }
+        window.onload = function(){
+            var day = DateMinus('2019-8-4 14:48:00', new Date());
+            var spanDay = document.getElementById('day');
+            spanDay.innerHTML = day;
+        }
+    </script>
+</body>
+</html>
